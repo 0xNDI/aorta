@@ -1,0 +1,36 @@
+[project]
+name = "aorta"
+version = "0.1.0"
+description = "Account Operators Replicating Trust Attack tool"
+readme = "README.md"
+authors = [{ name = "ahos6 (0xNDI)" }]
+requires-python = ">=3.13"
+dependencies = [
+    "impacket>=0.13.0",
+]
+
+[project.scripts]
+aorta = "aorta.main:main"
+
+[tool.setuptools.packages.find]
+include = ["aorta*"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.18",
+    "ty>=0.0.51",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+exclude = ["scripts/"]
+
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "SIM"]
+ignore = ["E501"]
